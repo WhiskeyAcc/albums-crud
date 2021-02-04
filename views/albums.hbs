@@ -1,0 +1,30 @@
+<form action="/albums/create" METHOD="POST" style="margin-bottom: 1rem;">
+    <div>
+        <label>
+            Название альбома
+            <input type="text" name="name">
+        </label>
+    </div>
+    <div>
+        <label>
+            Название песни
+            <input type="text" name="bandName">
+        </label>
+    </div>
+    <button> Добавить </button>
+</form>
+
+{{#each albums}}
+    <div style="display: flex;">
+        <form action="/albums/update" METHOD="POST">
+            <input type="text" name="id" value="{{id}}" hidden>
+            <input type="text" name="name" value="{{name}}">
+            <input type="text" name="bandName" value="{{bandName}}">
+            <button> Изменить </button>
+        </form>
+        <form action="/albums/delete" METHOD="POST">
+            <input type="text" name="id" value="{{id}}" hidden>
+            <button> Удалить </button>
+        </form>
+    </div>
+{{/each}}
